@@ -23,7 +23,7 @@ Route::name('students.')->prefix('students')->controller(StudentController::clas
 
     Route::get('/', 'index')->name('index');
 
-    Route::get('/{id}', 'show')->name('show');
+    Route::get('/{id}', 'show')->name('show')->whereNumber('id');
 
     Route::get('/create', 'create')->name('create');
 
@@ -42,7 +42,7 @@ Route::name('teachers.')->prefix('teachers')->controller(TeacherController::clas
 
     Route::get('/', 'index')->name('index');
 
-    Route::get('/{id}', 'show')->name('show');
+    Route::get('/{id}', 'show')->name('show')->whereNumber('id');
 
     Route::get('/create', 'create')->name('create');
 
