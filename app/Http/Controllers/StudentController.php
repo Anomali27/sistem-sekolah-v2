@@ -62,7 +62,6 @@ class StudentController extends Controller
         return view('students.edit', [
             'title' => $title
         ]);
-
     }
 
     public function update($id)
