@@ -27,13 +27,13 @@ Route::name('students.')->prefix('students')->controller(StudentController::clas
 
     Route::get('/create', 'create')->name('create');
 
-    Route::get('/{id}/edit', 'edit')->name('edit');
+    Route::get('/{id}/edit', 'edit')->name('edit')->whereNumber('id');
 
     Route::post('/', 'store')->name('store');
 
-    Route::put('/{id}', 'update')->name('update');
+    Route::put('/{id}', 'update')->name('update')->whereNumber('id');
 
-    Route::delete('/{id}', 'destroy')->name('destroy');
+    Route::delete('/{id}', 'destroy')->name('destroy')->whereNumber('id');
 
 });
 
@@ -46,13 +46,13 @@ Route::name('teachers.')->prefix('teachers')->controller(TeacherController::clas
 
     Route::get('/create', 'create')->name('create');
 
-    Route::get('/{id}/edit', 'edit')->name('edit');
+    Route::get('/{id}/edit', 'edit')->name('edit')->whereNumber('id');
 
     Route::post('/', 'store')->name('store');
 
-    Route::put('/{id}', 'update')->name('update');
+    Route::put('/{id}', 'update')->name('update')->whereNumber('id');
 
-    Route::delete('/{id}', 'destroy')->name('destroy');
+    Route::delete('/{id}', 'destroy')->name('destroy')->whereNumber('id');
 
 });
 
