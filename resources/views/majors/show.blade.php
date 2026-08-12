@@ -27,7 +27,7 @@
                 </div>
 
                 <a
-                    href="{{ route('majors.edit', ['id' => $class['id']]) ) }}"
+                    href="{{ route('majors.edit', ['major' => $major['id']]) }}"
                     class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
                     Ubah
                 </a>
