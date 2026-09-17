@@ -14,7 +14,8 @@
             </h1>
         </div>
 
-        <a href="{{ route('classes.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
+        <a href="{{ route('classes.create') }}"
+            class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
             Catat Kelas Baru
         </a>
     </div>
@@ -57,21 +58,27 @@
 
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
-                                <a href="{{ route('classes.show', ['id' => $class['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">
+                                <a href="{{ route('classes.show', ['id' => $class['id']]) }}"
+                                    class="text-[#16213A] hover:text-[#A16207]">
                                     Lihat
                                 </a>
 
-                                <a href="{{ route('classes.edit', ['id' => $class['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">
+                                <a href="{{ route('classes.edit', ['id' => $class['id']]) }}"
+                                    class="text-[#16213A] hover:text-[#A16207]">
                                     Ubah
                                 </a>
 
                                 <form action="" method="POST"
-                                    onsubmit="return confirm('Hapus data Kelas ini dari buku induk?')">
+                                    onsubmit="return confirm('Hapus data kelas ini dari buku induk?')">
 
-                                    <a href="{{ route('classes.destroy', ['id' => $class['id']]) }}" class="text-red-700 hover:text-red-900">
-                                    Hapus
-                                    <a>
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="text-xs font-medium text-red-700 transition hover:bg-red-50">
+                                        Hapus
+                                    </button>
                                 </form>
+
                             </div>
                         </td>
                     </tr>

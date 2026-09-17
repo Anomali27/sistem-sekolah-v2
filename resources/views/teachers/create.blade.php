@@ -97,8 +97,8 @@
 
                 <input
                     type="text"
-                    id="phone"
-                    name="phone"
+                    id="phone_number"
+                    name="phone_number"
                     placeholder="Contoh: 08123456789"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
@@ -114,8 +114,8 @@
                     id="status"
                     name="status"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="A">Aktif</option>
-                    <option value="TA">Tidak Aktif</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tidak Aktif">Tidak Aktif</option>
                 </select>
             </div>
 
@@ -126,11 +126,21 @@
                     Batal
                 </a>
 
-                <button
-                    type="submit"
-                    class="bg-[#16213A] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
-                    Simpan ke Buku Induk
-                </button>
+                <form
+                    action=""
+                    method="POST"
+                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+
+                    @csrf
+                    @method('DELETE')
+
+                    <button
+                        type="submit"
+                        class="border border-red-200 px-5 py-2.5 text-sm font-medium text-red-700 transition hover:bg-red-50">
+                        Hapus
+                    </button>
+
+                </form>
             </div>
 
         </form>

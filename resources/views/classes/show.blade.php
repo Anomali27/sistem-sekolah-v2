@@ -87,7 +87,7 @@
                 <form
                     action=""
                     method="POST"
-                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+                    onsubmit="return confirm('Hapus data kelas ini dari buku induk?')">
 
                     @csrf
                     @method('DELETE')

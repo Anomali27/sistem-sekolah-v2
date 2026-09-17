@@ -92,8 +92,8 @@
 
                 <input
                     type="text"
-                    id="phone"
-                    name="phone"
+                    id="phone_number"
+                    name="phone_number"
                     value="081234560001"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             </div>
@@ -109,8 +109,8 @@
                     id="status"
                     name="status"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="A">Aktif</option>
-                    <option value="TA">Tidak Aktif</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tidak Aktif">Tidak Aktif</option>
                 </select>
             </div>
 

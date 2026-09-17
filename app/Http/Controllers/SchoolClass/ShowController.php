@@ -12,7 +12,7 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, $id)
     {
-        $title = "Sistem Sekolah - Edit Kelas";
+        $title = "Sistem Sekolah - Detail Kelas";
         $classes = [
             [
                 'id' => 1,
