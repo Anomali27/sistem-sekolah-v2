@@ -15,13 +15,18 @@
             <p class="mt-1 text-sm text-slate-500">
                 Memperbarui catatan atas nama
                 <span class="font-medium text-[#16213A]">
-                    {{$student['name']}}
+                    {{$student->name}}
                 </span>.
             </p>
         </div>
 
-        <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+        <form 
+            action="{{ route('students.update', ['student' => $student->id]) }}" 
+            method="POST" 
+            class="space-y-6 border border-[#E5E3DB] bg-white p-8">
 
+            @csrf
+            @method('PUT')
             <div>
                 <label
                     for="nis"
@@ -33,8 +38,11 @@
                     type="text"
                     id="nis"
                     name="nis"
-                    value="{{$student['nis']}}"
+                    value="{{old('nis', $student->nis)}}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+                @error('nis')
+                    <span class="text-red-500 py-2">{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
@@ -48,8 +56,29 @@
                     type="text"
                     id="name"
                     name="name"
-                    value="{{$student['name']}}"
+                    value="{{old('name', $student->name)}}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+                @error('name')
+                    <span class="text-red-500 py-2">{{ $message }}</span>
+                @enderror
+            </div>
+            
+            <div>
+                <label
+                    for="email"
+                    class="mb-1.5 block text-xs font-semibold uppercase widest[0.1em] text-[#16213A]">
+                    Email
+                </label>
+
+                <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    value="{{old('email', $student->email)}}"
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+                @error('email')
+                    <span class="text-red-500 py-2">{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
@@ -63,9 +92,12 @@
                     id="gender"
                     name="gender"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="L" selected>Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option @selected(old('gender', $student->gender) === 'Laki-laki') value="Laki-laki">Laki-laki</option>
+                    <option @selected(old('gender', $student->gender) === 'Perempuan') value="Perempuan">Perempuan</option>
                 </select>
+                @error('gender')
+                    <span class="text-red-500 py-2">{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
@@ -79,10 +111,13 @@
                     id="major"
                     name="major"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="" {{ $student['major'] === 'AKL' ? 'selected' : '' }}>AKL</option>
-                    <option value="" {{ $student['major'] === 'TKJ' ? 'selected' : '' }}>TKJ</option>
-                    <option value="" {{ $student['major'] === '' ? 'selected' : '' }}>BiD</option>
+                    <option value="AKL" @selected(old('major', $student->major) === 'AKL') >AKL</option>
+                    <option value="TKJ" @selected(old('major', $student->major) === 'TKJ') >TKJ</option>
+                    <option value="BiD" @selected(old('major', $student->major) === 'BiD') >BiD</option>
                 </select>
+                @error('major')
+                    <span class="text-red-500 py-2">{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
@@ -96,8 +131,11 @@
                     type="text"
                     id="class"
                     name="class"
-                    value="{{$student['class']}}"
+                    value="{{$student->class}}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+                @error('class')
+                    <span class="text-red-500 py-2">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">

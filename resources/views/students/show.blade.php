@@ -17,15 +17,15 @@
                 </p>
 
                 <h1 class="font-display text-3xl font-semibold text-[#16213A]">
-                    {{$student['name']}}
+                    {{$student->name}}
                 </h1>
 
                 <p class="mt-1 font-mono text-xs text-slate-500">
-                    {{$student['nis']}}
+                    {{$student->nis}}
                 </p>
             </div>
 
-            <a href="{{ route('students.edit', ['id' => $student['id']]) }}"
+            <a href="{{ route('students.edit', ['student' => $student->id]) }}"
                 class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
                 Ubah
             </a>
@@ -39,7 +39,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{$student['nis']}}
+                    {{$student->nis}}
                 </dd>
             </div>
 
@@ -49,7 +49,17 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{$student['name']}}
+                    {{$student->name}}
+                </dd>
+            </div>
+            
+            <div class="flex justify-between px-8 py-4">
+                <dt class="text-xs uppercase widest[0.1em] text-slate-400">
+                    Email
+                </dt>
+
+                <dd class="font-medium text-[#16213A]">
+                    {{$student->email}}
                 </dd>
             </div>
 
@@ -59,7 +69,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    Laki-laki
+                    {{$student->gender}}
                 </dd>
             </div>
 
@@ -69,7 +79,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{$student['major']}}
+                    {{$student->major}}
                 </dd>
             </div>
 
@@ -79,7 +89,7 @@
                 </dt>
 
                 <dd class="font-medium text-[#16213A]">
-                    {{$student['class']}}
+                    {{$student->class}}
                 </dd>
             </div>
 
@@ -91,12 +101,15 @@
                 Kembali
             </a>
 
-            <form action="" method="POST" onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+            <form 
+                action="{{ route('students.destroy', ['student'=>$student->id]) }}" 
+                method="POST" 
+                onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
 
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" class="text-xs font-medium text-red-700 transition hover:bg-red-50">
+                <button type="submit" class="border-red-200 px-5 py-2.5 text-sm font-medium text-red-700 transition hover:bg-red-50">
                     Hapus
                 </button>
             </form>
