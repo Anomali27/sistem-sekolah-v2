@@ -29,4 +29,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    // One to One relation (untuk bagian student karena yang memiliki primary key jadi pakai hasOne)
+    public function student()
+    {
+        return $this->hasOne(Student::class, 'user_id', 'id');
+    }
+
 }
