@@ -16,13 +16,6 @@ class StudentSeeder extends Seeder
         Student::factory()->count(100)->create();    
     
     
-    
-    
-    
-    
-    
-    
-    
     // Versi Seeder 
 
         // $students = [
